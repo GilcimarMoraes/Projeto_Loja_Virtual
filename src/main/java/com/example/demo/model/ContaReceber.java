@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Objects;
 
 import com.example.demo.enums.StatusContaReceber;
 
@@ -67,5 +68,59 @@ public class ContaReceber implements Serializable{
 	public StatusContaReceber getStatus() {
 		return status;
 	}
+	public void setStatus ( StatusContaReceber status ) {
+		this.status = status;
+	}
+	
+	public Date getDataVencimento() {
+		return dataVencimento;
+	}
+	public void getDataVencimento ( Date dataVencimento ) {
+		this.dataVencimento = dataVencimento;
+	}
+	
+	public Date getDataPagamento() {
+		return dataPagamento;
+	}
+	public void setDataPagamento( Date dataPagamento ) {
+		this.dataPagamento = dataPagamento;
+	}
+	
+	public BigDecimal getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal( BigDecimal valorTotal ) {
+		this.valorTotal = valorTotal;
+	}
+	
+	public BigDecimal getValorDesconto() {
+		return valorDesconto;
+	}
+	public void setValorDesconto( BigDecimal valorDesconto ) {
+		this.valorDesconto = valorDesconto;
+	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa( Pessoa pessoa ) {
+		this.pessoa = pessoa;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContaReceber other = (ContaReceber) obj;
+		return Objects.equals(id, other.id);
+	}
+	
 	
 }
