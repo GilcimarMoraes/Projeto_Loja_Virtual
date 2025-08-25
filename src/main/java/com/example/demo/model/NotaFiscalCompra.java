@@ -1,13 +1,19 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table( name = "notaFiscalCompra" )
@@ -19,4 +25,103 @@ public class NotaFiscalCompra implements Serializable{
 	@Id
 	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "seq_notaFiscalCompra" )
 	private Long id;
+	
+	private String numeroNota;
+	
+	private String serie;
+	
+	@Column( columnDefinition = "text" )
+	private String descricao;
+	
+	private BigDecimal valorTotal;
+	
+	private BigDecimal valorDesconto;
+	
+	private BigDecimal valorIcms;
+	
+	@Temporal( TemporalType.DATE )
+	private Date dataCompra;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNumeroNota() {
+		return numeroNota;
+	}
+
+	public void setNumeroNota(String numeroNota) {
+		this.numeroNota = numeroNota;
+	}
+
+	public String getSerie() {
+		return serie;
+	}
+
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public BigDecimal getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(BigDecimal valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public BigDecimal getValorDesconto() {
+		return valorDesconto;
+	}
+
+	public void setValorDesconto(BigDecimal valorDesconto) {
+		this.valorDesconto = valorDesconto;
+	}
+
+	public BigDecimal getValorIcms() {
+		return valorIcms;
+	}
+
+	public void setValorIcms(BigDecimal valorIcms) {
+		this.valorIcms = valorIcms;
+	}
+
+	public Date getDataCompra() {
+		return dataCompra;
+	}
+
+	public void setDataCompra(Date dataCompra) {
+		this.dataCompra = dataCompra;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NotaFiscalCompra other = (NotaFiscalCompra) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+	
 }
