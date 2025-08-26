@@ -29,7 +29,7 @@ public class NotaItemProduto implements Serializable {
 	@Column( nullable = false )
 	private Double quantidade;
 	
-	@ManyToOne( targetEntity = NotaFiscalCompra.class)
+	@ManyToOne
 	@JoinColumn( name = "nota_fiscal_compra_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, 
 					name = "nota_fiscal_compra_fk" ) )
 	private NotaFiscalCompra notaFiscalCompra;

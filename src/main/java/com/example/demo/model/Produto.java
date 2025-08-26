@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -34,8 +35,8 @@ public class Produto implements Serializable {
 	@Column( columnDefinition = "text" )
 	private String descricao;
 	
-	@OneToMany
-	@JoinColumn( name = "notaItemProduto_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, name = "produto_fk" ) )
+	@ManyToOne
+	@JoinColumn( name = "nota_item_produto_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, name = "nota_item_produto_fk" ) )
 	private NotaItemProduto notaItemProduto;
 	
 	private Double peso;
