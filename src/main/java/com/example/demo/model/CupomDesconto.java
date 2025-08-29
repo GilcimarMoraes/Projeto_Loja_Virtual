@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -10,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @SequenceGenerator( name = "seq_cupom_desconto", sequenceName = "seq_cupom_desconto", allocationSize = 1, initialValue = 1 )
@@ -27,6 +30,10 @@ public class CupomDesconto implements Serializable {
 	private BigDecimal valorRealDesconto;
 	
 	private BigDecimal valorPercentualDesconto;
+	
+	@Column( nullable = false )
+	@Temporal( TemporalType.DATE )
+	private Date dataValidadeCupom;
 
 	public Long getId() {
 		return id;
@@ -58,6 +65,14 @@ public class CupomDesconto implements Serializable {
 
 	public void setValorPercentualDesconto(BigDecimal valorPercentualDesconto) {
 		this.valorPercentualDesconto = valorPercentualDesconto;
+	}
+
+	public Date getDataValidadeCupom() {
+		return dataValidadeCupom;
+	}
+
+	public void setDataValidadeCupom(Date dataValidadeCupom) {
+		this.dataValidadeCupom = dataValidadeCupom;
 	}
 
 	@Override
