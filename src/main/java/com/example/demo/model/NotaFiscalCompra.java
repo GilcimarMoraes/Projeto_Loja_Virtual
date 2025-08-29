@@ -6,10 +6,14 @@ import java.util.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -26,21 +30,34 @@ public class NotaFiscalCompra implements Serializable{
 	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "seq_notaFiscalCompra" )
 	private Long id;
 	
+	@Column( nullable = false )
 	private String numeroNota;
 	
+	@Column( nullable = false )
 	private String serie;
 	
 	@Column( columnDefinition = "text" )
 	private String descricao;
 	
+	@Column( nullable = false )
 	private BigDecimal valorTotal;
 	
 	private BigDecimal valorDesconto;
 	
+	@Column( nullable = false )
 	private BigDecimal valorIcms;
 	
+	@Column( nullable = false )
 	@Temporal( TemporalType.DATE )
 	private Date dataCompra;
+	
+	@ManyToOne
+	@JoinColumn( name = "pessoa_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, name = "produto_fk" ) )
+	private Pessoa pessoa;
+	
+	@ManyToOne
+	@JoinColumn( name = "conta_pagar_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, name = "conta_pagar_fk" ) )
+	private ContaPagar contaPagar;
 
 	public Long getId() {
 		return id;
