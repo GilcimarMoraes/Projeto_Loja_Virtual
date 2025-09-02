@@ -28,34 +28,65 @@ public class Produto implements Serializable {
 	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "seq_produto" )
 	private Long id;
 	
+	@Column( nullable = false )
 	private String unidade;
 	
+	@Column( nullable = false )
 	private String nome;
 	
-	@Column( columnDefinition = "text" )
+	@Column( nullable = false )
+	private Boolean ativo = Boolean.TRUE;
+	
+	@Column( columnDefinition = "text", length = 2000, nullable = false )
 	private String descricao;
 	
 	@ManyToOne
 	@JoinColumn( name = "nota_item_produto_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, name = "nota_item_produto_fk" ) )
 	private NotaItemProduto notaItemProduto;
 	
+	@Column( nullable = false )
 	private Double peso;
 	
+	@Column( nullable = false )
 	private Double largura;
 	
+	@Column( nullable = false )
 	private Double altura;
 	
+	@Column( nullable = false )
 	private Double profundidade;
 	
-	private BigDecimal valorVenda;
+	@Column( nullable = false )
+	private BigDecimal valorVenda = BigDecimal.ZERO;
 	
-	private int quantidadeAlertaEstoque;
+	@Column( nullable = false )
+	private Integer quantidadeEstoque = 0;
+	
+	private int quantidadeAlertaEstoque = 0;
 	
 	private String linkYoutube;
 	
-	private Boolean alertaQuantidadeEstoque;
+	private Boolean alertaQuantidadeEstoque = Boolean.FALSE;
 	
-	private int quantidadeClick;
+	private int quantidadeClick = 0;
+	
+	
+
+	public Integer getQuantidadeEstoque() {
+		return quantidadeEstoque;
+	}
+
+	public void setQuantidadeEstoque(Integer quantidadeEstoque) {
+		this.quantidadeEstoque = quantidadeEstoque;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
 
 	public Long getId() {
 		return id;
