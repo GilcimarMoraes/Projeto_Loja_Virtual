@@ -40,9 +40,9 @@ public class Produto implements Serializable {
 	@Column( columnDefinition = "text", length = 2000, nullable = false )
 	private String descricao;
 	
-	@ManyToOne
-	@JoinColumn( name = "nota_item_produto_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, name = "nota_item_produto_fk" ) )
-	private NotaItemProduto notaItemProduto;
+	//@ManyToOne
+	//@JoinColumn( name = "nota_item_produto_id", nullable = false, foreignKey = @ForeignKey( value = ConstraintMode.CONSTRAINT, name = "nota_item_produto_fk" ) )
+	//private NotaItemProduto notaItemProduto;
 	
 	@Column( nullable = false )
 	private Double peso;
@@ -120,13 +120,13 @@ public class Produto implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public NotaItemProduto getNotaItemProduto() {
-		return notaItemProduto;
-	}
+	//public NotaItemProduto getNotaItemProduto() {
+		//return notaItemProduto;
+	//}
 
-	public void setNotaItemProduto(NotaItemProduto notaItemProduto) {
-		this.notaItemProduto = notaItemProduto;
-	}
+	//public void setNotaItemProduto(NotaItemProduto notaItemProduto) {
+	//	this.notaItemProduto = notaItemProduto;
+	//}
 
 	public Double getPeso() {
 		return peso;
