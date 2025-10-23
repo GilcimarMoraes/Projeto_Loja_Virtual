@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="/home/myrraws/Documentos/AulaSpringBoot/eclipse-workspace"/>
+			<item value="/home/myrraws/Documentos/AulaSpringBoot/JDEV/Projeto_Loja_Virtual"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
