@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.demo.controller.AcessoController;
 import com.example.demo.model.Acesso;
 import com.example.demo.repository.AcessoRepository;
 import com.example.demo.services.AcessoService;
@@ -12,7 +13,10 @@ import com.example.demo.services.AcessoService;
 public class ProjetoLojaVirtualApplicationTests {
 
 	@Autowired
-	private AcessoService acessoService;
+	private AcessoController acessoController;
+	
+	//@Autowired
+	//private AcessoService acessoService;
 	
 	//@Autowired
 	//private AcessoRepository acessoRepository;
@@ -22,8 +26,8 @@ public class ProjetoLojaVirtualApplicationTests {
 		
 		Acesso acesso = new Acesso();
 		
-		acesso.setDescricao( "ROLE_SECRETARIO" );
+		acesso.setDescricao( "ROLE_SECRETARIO 2" );
 		
-		acessoService.save(acesso);
+		acessoController.salvarAcesso( acesso );
 	}
 }
