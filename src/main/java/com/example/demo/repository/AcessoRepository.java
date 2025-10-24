@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Acesso;
 
-
 @Repository
 @Transactional
 public interface AcessoRepository extends JpaRepository<Acesso, Long> {

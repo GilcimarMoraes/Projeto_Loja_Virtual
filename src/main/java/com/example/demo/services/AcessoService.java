@@ -1,10 +1,12 @@
 package com.example.demo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Acesso;
 import com.example.demo.repository.AcessoRepository;
 
+@Service
 public class AcessoService {
 
 	@Autowired
