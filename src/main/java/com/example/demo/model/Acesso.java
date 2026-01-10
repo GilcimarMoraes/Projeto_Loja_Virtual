@@ -2,7 +2,6 @@ package com.example.demo.model;
 
 import java.util.Objects;
 
-import org.springframework.security.core.GrantedAuthority;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +14,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table( name = "acesso" )
 @SequenceGenerator( name = "seq_acesso", sequenceName = "seq_acesso", allocationSize = 1, initialValue = 1)
-public class Acesso implements GrantedAuthority{
+public class Acesso {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -25,32 +24,23 @@ public class Acesso implements GrantedAuthority{
 	
 	@Column(nullable = false)
 	private String descricao;
-	
-	@Override
-	public String getAuthority() {
-		return this.descricao;
-	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
-	public void setId( Long id ) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getDescricao() {
 		return descricao;
 	}
-	
-	public void setDescricao( String descricao ) {
+
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
 
 	@Override
 	public boolean equals(Object obj) {

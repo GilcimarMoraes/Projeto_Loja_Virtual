@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
@@ -28,7 +25,7 @@ import jakarta.persistence.UniqueConstraint;
 @Entity
 @Table( name = "usuario" )
 @SequenceGenerator( name = "seq_usuario", sequenceName = "seq_usuario", initialValue = 1, allocationSize = 1)
-public class Usuario implements UserDetails{
+public class Usuario {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -38,6 +35,9 @@ public class Usuario implements UserDetails{
 	
 	@Column( nullable = false )
 	private String login;
+
+	@Column( nullable = false )
+	private String email;
 	
 	@Column( nullable = false )
 	private String senha;
@@ -72,43 +72,5 @@ public class Usuario implements UserDetails{
 	 *  A função getAuthorities retorna uma coleção de autoridades concedidas ao usuário, determinando o que o 
 	 *  usuário pode fazer no sistema.
 	 */
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
-		return this.acessos;
-	}
-
-	@Override
-	public String getPassword() {
-		
-		return this.senha;
-	}
-
-	@Override
-	public String getUsername() {
-		
-		return this.login;
-	}
-	
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-	
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-
 
 }

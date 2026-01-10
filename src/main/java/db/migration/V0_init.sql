@@ -2,7 +2,6 @@
 -- PostgreSQL database dump
 --
 
-\restrict UkqtPEQWaLDlwGWXlJRJ4bZ4JCS7kV6oIkpdqfBMs50KpZhwOfx5hKe8NoJce0m
 
 -- Dumped from database version 17.7 (Ubuntu 17.7-3.pgdg24.04+1)
 -- Dumped by pg_dump version 18.1 (Ubuntu 18.1-1.pgdg24.04+2)
@@ -31,9 +30,7 @@ SET row_security = off;
 
 ALTER DATABASE loja_virtual OWNER TO postgres;
 
-\unrestrict UkqtPEQWaLDlwGWXlJRJ4bZ4JCS7kV6oIkpdqfBMs50KpZhwOfx5hKe8NoJce0m
 -- \connect loja_virtual
-\restrict UkqtPEQWaLDlwGWXlJRJ4bZ4JCS7kV6oIkpdqfBMs50KpZhwOfx5hKe8NoJce0m
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1591,5 +1588,3 @@ ALTER TABLE ONLY public.status_rastreio
 --
 -- PostgreSQL database dump complete
 --
-
-\unrestrict UkqtPEQWaLDlwGWXlJRJ4bZ4JCS7kV6oIkpdqfBMs50KpZhwOfx5hKe8NoJce0m

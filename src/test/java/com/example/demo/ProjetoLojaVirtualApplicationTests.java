@@ -1,13 +1,13 @@
 package com.example.demo;
 
+import com.example.demo.repository.AcessoRepository;
+import com.example.demo.service.AcessoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.controller.AcessoController;
 import com.example.demo.model.Acesso;
-import com.example.demo.repository.AcessoRepository;
-import com.example.demo.services.AcessoService;
 
 @SpringBootTest( classes = ProjetoLojaVirtualApplication.class)
 public class ProjetoLojaVirtualApplicationTests {
@@ -25,9 +25,17 @@ public class ProjetoLojaVirtualApplicationTests {
 	public void testCadastraAcesso() {
 		
 		Acesso acesso = new Acesso();
-		
+
+
+
 		acesso.setDescricao( "ROLE_SECRETARIO 2" );
-		
+
+		//Usando repository direto
+		//acessoRepository.save( acesso );
+
+		//Usando service
+		//acessoService.save( acesso );
+
 		acessoController.salvarAcesso( acesso );
 	}
 }
