@@ -18,10 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping( "acesso" )
 public class AcessoController {
 
-	@Autowired
-	private AcessoService acessoService;
+	private final AcessoService acessoService;
 
-	@ResponseBody /*Poder dar um retorno da API*/
+	public  AcessoController( AcessoService acessoService ) {
+		this.acessoService = acessoService;
+	}
+
+	//@ResponseBody /*Poder dar um retorno da API*/
 	@PostMapping( value = "/salvarAcesso" ) /*Mapeando a url para receber JSON*/
 	public ResponseEntity<Acesso> salvarAcesso(@RequestBody Acesso acesso ) { /*Request recebe um JSON e devolve um objeto*/
 

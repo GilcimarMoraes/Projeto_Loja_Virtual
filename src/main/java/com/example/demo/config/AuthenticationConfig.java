@@ -9,7 +9,9 @@ import org.springframework.security.config.annotation.authentication.configurati
 public class AuthenticationConfig {
 
     @Bean
-    public AuthenticationManager authenticationManager( AuthenticationConfiguration config ) throws Exception {
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration config
+    ) throws Exception {
         return config.getAuthenticationManager();
     }
 }

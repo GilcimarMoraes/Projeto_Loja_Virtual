@@ -31,4 +31,48 @@ public class LoginHistory {
         this.email = email;
         this.acessToken = acessToken;
     }
+
+    public LoginHistory() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAcessToken() {
+        return acessToken;
+    }
+
+    public void setAcessToken(String acessToken) {
+        this.acessToken = acessToken;
+    }
+
+    public LocalDateTime getLoginAt() {
+        return LoginAt;
+    }
+
+    public void setLoginAt(LocalDateTime loginAt) {
+        LoginAt = loginAt;
+    }
 }

@@ -69,6 +69,10 @@ public class Usuario {
 		this.pessoa = pessoa;
 	}
 
+	public Usuario() {
+		this.dataAtualSenha = new Date();
+	}
+
 	public Long getId() {
 		return id;
 	}

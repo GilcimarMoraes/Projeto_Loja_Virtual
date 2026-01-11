@@ -10,21 +10,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 
-    public static final String SECURITY_SCHEME_NAME = "BearerAuth";
+    public static final String SECURITY_SCHEME_NAME = "BeareAuth";
 
     @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI().info( new Info()
-                .title("Loja Virtual")
-                .version( "1.0" )
-                .description( "API Loja Virtual, projeto de aprendizado Spring Boot 3" ))
-                .addSecurityItem( new SecurityRequirement().addList( SECURITY_SCHEME_NAME ))
-                .components( new io.swagger.v3.oas.models.Components()
-                        .addSecuritySchemes( SECURITY_SCHEME_NAME,
+    public OpenAPI customOpenApi() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("Skilhub API")
+                        .version("1.0")
+                        .description("Marketplace de Serviços"))
+                .addSecurityItem(new SecurityRequirement().addList(SECURITY_SCHEME_NAME))
+                .components(new io.swagger.v3.oas.models.Components()
+                        .addSecuritySchemes(SECURITY_SCHEME_NAME,
                                 new SecurityScheme()
-                                        .name( SECURITY_SCHEME_NAME )
-                                        .type( SecurityScheme.Type.HTTP )
-                                        .bearerFormat( "JWT" )
+                                        .name(SECURITY_SCHEME_NAME)
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")
                         ));
     }
+
 }
