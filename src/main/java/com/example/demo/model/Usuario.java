@@ -60,9 +60,71 @@ public class Usuario {
 			inverseJoinColumns = @JoinColumn( name = "acesso_id", referencedColumnName = "id", table = "acesso",
 			unique = false, foreignKey = @ForeignKey( name = "acesso_fk", value = ConstraintMode.CONSTRAINT)))	
 	
-	private List<Acesso> acessos; 
+	private List<Acesso> acessos;
 
-	
+	public Usuario(String login, String email, String senha, Pessoa pessoa) {
+		this.login = login;
+		this.email = email;
+		this.senha = senha;
+		this.pessoa = pessoa;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public Date getDataAtualSenha() {
+		return dataAtualSenha;
+	}
+
+	public void setDataAtualSenha(Date dataAtualSenha) {
+		this.dataAtualSenha = dataAtualSenha;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public List<Acesso> getAcessos() {
+		return acessos;
+	}
+
+	public void setAcessos(List<Acesso> acessos) {
+		this.acessos = acessos;
+	}
+
 	/**
 	 *  Parte fundamental do Spring Security para gerenciar autorizações.
 	 *  É uma interface que representa uma AUTORIZAÇÃO CONCEDIDA a um usuário autenticado.
